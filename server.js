@@ -11,15 +11,16 @@ app.use(express.json());
 
 // Database configuration
 const dbConfig = {
-    user: 'sa',
-    password: '123',
-    server: '192.168.81.118',
-    database: 'RestaurantDB',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_NAME,
     options: {
         encrypt: true,
         trustServerCertificate: true,
     },
 };
+
 
 // Fetch products
 app.get('/api/products', async (req, res) => {
